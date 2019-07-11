@@ -4,12 +4,15 @@ import time
 import xlwt
 import os
 from requests.adapters import HTTPAdapter
+import datetime
 
 # 标准网址格式http://www.dilidili.name/anime/urls/
 # 获取所有的urls
 # 1. 201001 - 201907
 # 2. 2000xq
 # 3. 2000xqq
+
+start_time = datetime.datetime.now()
 
 s = requests.Session()
 s.mount('http://',HTTPAdapter(max_retries=15))
@@ -45,7 +48,7 @@ def get_links(url):
         for link in links:
             href = link.get('href')
             get_info(href, date)
-            time.sleep(1)
+            # time.sleep(1)
     except ConnectionError:
         print('拒绝连接')
 
@@ -54,9 +57,9 @@ def get_value(v,*info):
     if isinstance(v,list):
         if(len(v)):
             if(info):
-                return v[0].get(info[0])+ " | " + v[0].text
+                return str(v[0].get(info[0]))+ " | " + str(v[0].text)
             else:
-                return v[0].text
+                return str(v[0].text)
         else:
             return '此项信息缺失'
     else:
@@ -107,5 +110,9 @@ if __name__ == '__main__':
     urls = ['http://www.dilidili.name/anime/{}/'.format(url) for url in urls]
     for single_url in urls:
         get_links(single_url)
-        time.sleep(2)
+        # time.sleep(2)
     save_to_execl(datas,'DiliDili',['番名','日期','百度云链接','详情网址'])
+
+    end_time = datetime.datetime.now()
+    run_time = (end_time - start_time).seconds
+    print('运行时间:' + str(run_time))
