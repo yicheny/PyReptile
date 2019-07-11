@@ -12,8 +12,8 @@ from requests.adapters import HTTPAdapter
 # 3. 2000xqq
 
 s = requests.Session()
-s.mount('http://',HTTPAdapter(max_retries=5))
-s.mount('https://',HTTPAdapter(max_retries=5))
+s.mount('http://',HTTPAdapter(max_retries=15))
+s.mount('https://',HTTPAdapter(max_retries=15))
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'
@@ -25,7 +25,7 @@ def getUrls(url):
     urls.append(url)
     url = int(url)
     url = url+3
-    if(url>201910):
+    if(url>201907):
         return
         # return urls.extend(['2000xq','2000xqq'])
     else:
@@ -103,6 +103,7 @@ def save_to_execl(data,name,head):
 
 if __name__ == '__main__':
     getUrls('201001')
+    print(len(urls),urls)
     urls = ['http://www.dilidili.name/anime/{}/'.format(url) for url in urls]
     for single_url in urls:
         get_links(single_url)
