@@ -15,4 +15,3 @@ except ConnectionError:
     print('拒绝连接')
 
 # 注
-# li:nth-child(1)这种需要改为li:nth-of-type(1)
