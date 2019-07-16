@@ -38,18 +38,22 @@ def get_tits():
 
 params_cid = [(i) for i in range(873530,875452)]
 
-def get_content(params):
-    res = s.post(content_url,params,headers=headers)
-    info = json.loads(res.text)['info']
-    info = re.sub('<br>','',info)
-    print(info)
+f = open('./source/斗破苍穹.txt','a+')
+def get_content(cid):
+    params['cid'] = cid
+    print(params['cid'])
+    # res = s.post(content_url,params,headers=headers)
+    # info = json.loads(res.text)['info']
+    # info = re.sub('<br>','',info)
+    # f.write(info)
+    # print(info)
 
 # tits = get_tits()
 
-# f = open('./source/斗破苍穹.txt','a+')
 
 if __name__ == '__main__':
-
+    for i in params_cid:
+        get_content(i)
 
     end_time = datetime.datetime.now()
     run_time = (end_time - start_time).seconds
