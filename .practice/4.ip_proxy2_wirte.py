@@ -6,6 +6,7 @@ s = requests.Session()
 s.mount('http://',HTTPAdapter(max_retries=15))
 s.mount('https://',HTTPAdapter(max_retries=15))
 
+CHECK_URL = 'https://ip.cn'
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 }

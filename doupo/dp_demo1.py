@@ -34,7 +34,7 @@ params = {
 
 params_cid = [(i) for i in range(873530,875452)]
 
-f = open('./source/斗破苍穹.txt','a+',encoding='utf-8')#文件写入时，windows打开文件默认以“gbk“编码的，造成不识别unicode字符
+f = open('./source/斗破苍穹.txt','a+',encoding='utf-8') #文件写入时，windows打开文件默认以“gbk“编码的，造成不识别unicode字符
 def get_content(cid):
     params['cid'] = cid
     res = s.post(content_url,params,headers=headers)

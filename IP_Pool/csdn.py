@@ -45,7 +45,6 @@ def add_proxy(proxy: str):
             proxies.remove(proxy)
         print(proxy, e)
 
-
 def fetch_proxy():
     """
     抓取代理ip
