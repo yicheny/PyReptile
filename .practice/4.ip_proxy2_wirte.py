@@ -17,7 +17,7 @@ proxies = {
 }
 common_url = 'http://www.89ip.cn'
 
-f = open('./source/ip_pool.txt','a+',encoding='utf-8')
+f = open('./source/old_ips.txt','a+',encoding='utf-8')
 
 def get_proxy_ip(url):
     res = s.get(url,headers=headers)

@@ -1,7 +1,7 @@
 import requests
 from concurrent import futures
 
-ips = open('./source/ip_pool.txt','r').read().split('\n')
+ips = open('./source/old_ips.txt','r').read().split('\n')
 new_file = open('./source/new_ips.txt','a+',encoding='utf-8')
 new_ips = []
 
