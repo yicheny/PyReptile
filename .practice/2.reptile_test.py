@@ -10,11 +10,10 @@ start_time = datetime.datetime.now()
 s = requests.Session()
 s.mount('http://',HTTPAdapter(max_retries=15))
 s.mount('https://',HTTPAdapter(max_retries=15))
-url = 'https://segmentfault.com/'
+url = 'http://http.tiqu.alicdns.com/getip3?num=1&type=1&pro=&city=0&yys=0&port=1&time=1&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=&gm=4'
 
 def get_content(url):
     res = s.get(url,headers=headers)
-    # res.encoding='gb2312'
     print(res.text)
 
 

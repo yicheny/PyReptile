@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 start_time = time.time()
 print('start')
-urls = open('./source/ip_pool.txt','r').read().split('\n')
+urls = open('./source/proxypool.txt','r').read().split('\n')
 
 def child_task(proxy):
     proxies = {

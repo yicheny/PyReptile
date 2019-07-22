@@ -1,8 +1,13 @@
 [TOC]
 
 # 安装
-1. 安装`lxml`
-2. 安装[pyOpenSSL](https://pypi.python.org/pypi/pyQpenSSL#download) <br>
-`pip install pyOpenSSL`
-3. 安装[Twisted](http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted)
-`pip install Twisted‑19.2.1‑cp36‑cp36m‑win_amd64.whl`
+1. 先安装[Twisted](http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted),下载文件后执行:
+
+`pip install G:\2019\pyCharmProject\Twisted-19.2.1-cp36-cp36m-win_amd64.whl` 
+> 注意：一定要将路径带上去
+
+2. 执行`pip install scrapy`
+
+# 指令
+- 创建项目:`scrapy startproject 项目名称`
+- 创建Spider:`scrapy genspider 文件名称 网站域名`
