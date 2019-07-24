@@ -17,9 +17,14 @@ base_headers = {
     'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'
 }
 
+temp_proxy = '91.205.218.32:80'
 # 检测请求是否成功
-def get_page(url, options={}):
+def get_page(url, options={}, proxy=temp_proxy):
     headers = dict(base_headers, **options) ##
+    proxies = {
+        'http':'http://' + proxy,
+        'https':'https://' + proxy
+    }
     print('正在抓取', url)
     try:
         response = requests.get(url, headers=headers)
