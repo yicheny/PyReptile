@@ -22,7 +22,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
         return proxies
 
     # 以下均为免费代理
-    def crawl_89ip(self, page_count=20):
+    def crawl_89ip(self, page_count=4):
         start_url = 'http://www.89ip.cn/index_{}.html'
         urls = [start_url.format(page) for page in range(1,page_count+1)]
         for url in urls:
@@ -37,11 +37,6 @@ class Crawler(object, metaclass=ProxyMetaclass):
                     yield ':'.join([ip,port])
 
     def crawl_daili66(self, page_count=4):
-        """
-        获取代理66
-        :param page_count: 页码
-        :return: 代理
-        """
         start_url = 'http://www.66ip.cn/{}.html'
         urls = [start_url.format(page) for page in range(1, page_count + 1)]
         for url in urls:

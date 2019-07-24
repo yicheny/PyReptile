@@ -27,5 +27,5 @@ def get_counts():
     conn = get_conn()
     return str(conn.count())
 
-if __name__ == '__main__':
-    app.run(host='127.0.0.1',port=5050) #默认端口是5000，host默认是127.0.0.1,只能本机访问,设置0.0.0.0允许其他人访问
+# if __name__ == '__main__':
+#     app.run(host='127.0.0.1',port=5050) #默认端口是5000，host默认是127.0.0.1,只能本机访问,设置0.0.0.0允许其他人访问
