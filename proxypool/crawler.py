@@ -1,3 +1,5 @@
+INITIAL_PAGE = 4
+
 from utils import get_page
 from pyquery import PyQuery as pq
 import re
@@ -22,7 +24,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
         return proxies
 
     # 以下均为免费代理
-    def crawl_89ip(self, page_count=4):
+    def crawl_89ip(self, page_count=INITIAL_PAGE):
         start_url = 'http://www.89ip.cn/index_{}.html'
         urls = [start_url.format(page) for page in range(1,page_count+1)]
         for url in urls:
@@ -36,7 +38,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
                     port = tr.find('td:nth-child(2)').text()
                     yield ':'.join([ip,port])
 
-    def crawl_daili66(self, page_count=4):
+    def crawl_daili66(self, page_count=INITIAL_PAGE):
         start_url = 'http://www.66ip.cn/{}.html'
         urls = [start_url.format(page) for page in range(1, page_count + 1)]
         for url in urls:
@@ -51,7 +53,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
                     yield ':'.join([ip, port])
 
     def crawl_ip3366(self):
-        for page in range(1, 4):
+        for page in range(1, INITIAL_PAGE):
             start_url = 'http://www.ip3366.net/free/?stype=1&page={}'.format(page)
             html = get_page(start_url)
             ip_address = re.compile('<tr>\s*<td>(.*?)</td>\s*<td>(.*?)</td>')
@@ -62,7 +64,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
                 yield result.replace(' ', '')
 
     def crawl_kuaidaili(self):
-        for i in range(1, 4):
+        for i in range(1, INITIAL_PAGE):
             start_url = 'http://www.kuaidaili.com/free/inha/{}/'.format(i)
             html = get_page(start_url)
             if html:
@@ -75,7 +77,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
                     yield address_port.replace(' ', '')
 
     def crawl_xicidaili(self):
-        for i in range(1, 3):
+        for i in range(1, INITIAL_PAGE):
             start_url = 'http://www.xicidaili.com/nn/{}'.format(i)
             headers = {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -98,7 +100,7 @@ class Crawler(object, metaclass=ProxyMetaclass):
                         yield address_port.replace(' ', '')
 
     def crawl_ip3366(self):
-        for i in range(1, 4):
+        for i in range(1, INITIAL_PAGE):
             start_url = 'http://www.ip3366.net/?stype=1&page={}'.format(i)
             html = get_page(start_url)
             if html:
