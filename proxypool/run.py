@@ -1,5 +1,5 @@
-import os
+from scheduler import Scheduler
 
 if __name__ == '__main__':
-    print('hello')
-    # os.system('python run.py')
+    sch = Scheduler()
+    sch.run()

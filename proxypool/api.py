@@ -1,8 +1,10 @@
 from flask import Flask,g
 from db import RedisClient
+from flask_cors import CORS
 
 __all__ = ['app']
 app = Flask(__name__)
+CORS(app) #允许跨域
 
 def get_conn():
     if not hasattr(g,'redis'):
@@ -26,4 +28,4 @@ def get_counts():
     return str(conn.count())
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1',port=5050) #默认端口是5000
+    app.run(host='127.0.0.1',port=5050) #默认端口是5000，host默认是127.0.0.1,只能本机访问,设置0.0.0.0允许其他人访问

@@ -35,7 +35,7 @@ class Tester(object):
                 print('代理请求失败',proxy)
 
     def run(self):
-        print('测试器开始运行')
+        # print('测试器开始运行')
         try:
             proxies = self.redis.all()
             loop = asyncio.get_event_loop()
