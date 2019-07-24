@@ -5,7 +5,7 @@ REDIS_KEY = 'proxies'
 MAX_SCORE = 100
 MIN_SCORE = 0
 INITIAL_SCORE = 10
-DB = 5
+DB = 5 #免费ip代理设置为5,收费设置为6,ASDL设置为7
 
 import redis
 from random import choice
@@ -39,8 +39,8 @@ class RedisClient(object):
     def existe(self,proxy):
         return not self.db.zscore(REDIS_KEY,proxy) == None
 
-    # def max(self):
-    #     print('max')
+    def set_max(self,proxy):
+        return self.db.zadd(REDIS_KEY,{proxy:MAX_SCORE})
 
     def rem(self,proxy):
         self.db.zrem(REDIS_KEY,proxy)
@@ -52,16 +52,17 @@ class RedisClient(object):
         return self.db.zrangebyscore(REDIS_KEY,MIN_SCORE,MAX_SCORE)
 
 
-if __name__ == '__main__':
-    db = RedisClient()
-    db.add('ylf',20)
-    db.add('ljf',30)
-    db.add('wyf',50)
-    db.add('mzw',40)
+# if __name__ == '__main__':
+#     db = RedisClient()
+    # db.set_max('ylf')
+    # db.add('ylf',20)
+    # db.add('ljf',30)
+    # db.add('wyf',50)
+    # db.add('mzw',40)
     # db.add('rl',100)
     # db.rem('rl')
     # print(db.all())
-    print(db.random())
+    # print(db.random())
     # print(db.existe('hhh'))
     # print(db.existe('ylf'))
-    print(db.decrease('ylf'))
+    # print(db.decrease('ylf'))
