@@ -24,9 +24,8 @@ def get_content(url,proxy):
     try:
         res = s.get(url, headers=headers, proxies=proxies,timeout=1)
         print(res.status_code)
-    except Exception:
-        print('Error')
-
+    except Exception as e:
+        print('Error',e)
 
 if __name__ == '__main__':
     get_content(url,proxy)
