@@ -52,9 +52,9 @@ ROBOTSTXT_OBEY = False # Scrapy默认遵守robots协议，所以针对某些网�
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'demo3_images360.middlewares.Demo3Images360DownloaderMiddleware': 543,
-#}
+# DOWNLOADER_MIDDLEWARES = {
+   # 'demo3_images360.middlewares.Demo3Images360DownloaderMiddleware': 543,
+# }
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -66,8 +66,8 @@ ROBOTSTXT_OBEY = False # Scrapy默认遵守robots协议，所以针对某些网�
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    # 'demo3_images360.pipelines.ImagePipeline': 300,
-   # 'demo3_images360.pipelines.MongoPipeline': 301,
-    'demo3_images360.pipelines.MysqlPipeline': 302,
+   'demo3_images360.pipelines.MongoPipeline': 301,
+   #  'demo3_images360.pipelines.MysqlPipeline': 302,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -92,8 +92,9 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 MAX_PAGE = 1 #自定义爬取的最大页数
-MONGO_URI = 'localhost'
+MONGO_HOST = 'localhost'
 MONGO_DB = 'images360'
+MONGO_PORT = 27017
 MYSQL_HOST = 'localhost'
 MYSQL_DATABASE = 'demo'
 MYSQL_PORT = 3306
