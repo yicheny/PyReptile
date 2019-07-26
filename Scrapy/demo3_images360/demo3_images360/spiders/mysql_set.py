@@ -6,7 +6,7 @@ MYSQL_PASSWORD = 'qazxsw'
 
 TABLE_NAME = 'images'
 INIT_KEYS = 'id,url,title,thumb'
-INIT_VALUES = '%s,%s,%s,%s'
+# INIT_VALUES = '%s,%s,%s,%s'
 DATA_VALUES = ['2b15246110568c23b2bc732c1723caf6', 'https://p0.ssl.qhimgs1.com/t01c8b7b000cdb7b044.jpg', '高山牧场,沃州,瑞士,欧洲', 'https://p0.ssl.qhimgs1.com/sdr/238__/t01c8b7b000cdb7b044.jpg']
 
 import pymysql
@@ -33,6 +33,6 @@ class MySql(object):
 
 if __name__ == '__main__':
     client = MySql()
-    # client.create_table()
+    client.create_table()
     # client.drop_table()
-    client.insert()
+    # client.insert()
