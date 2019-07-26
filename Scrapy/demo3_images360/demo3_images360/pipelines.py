@@ -20,13 +20,7 @@ class MongoPipeline(object):
         self.db = self.client[self.mongo_db]
 
     def process_item(self,item,spider): #执行顺序4
-        IMAGE_OBJ = {'id': '2b15246110568c23b2bc732c1723caf6',
-                     'thumb': 'https://p0.ssl.qhimgs1.com/sdr/238__/t01c8b7b000cdb7b044.jpg',
-                     'title': '高山牧场,沃州,瑞士,欧洲',
-                     'url': 'https://p0.ssl.qhimgs1.com/t01c8b7b000cdb7b044.jpg'}
-        print(item.collection,type(item),dict(item))
-
-        # self.db[item.collection].insert(IMAGE_OBJ)
+        self.db[item.collection].insert(dict(item))
         return item
 
     def close_spider(self,spider): #执行顺序5
