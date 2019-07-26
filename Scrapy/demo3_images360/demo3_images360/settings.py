@@ -66,8 +66,8 @@ ROBOTSTXT_OBEY = False # Scrapy默认遵守robots协议，所以针对某些网�
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    # 'demo3_images360.pipelines.ImagePipeline': 300,
-   'demo3_images360.pipelines.MongoPipeline': 301,
-   #  'demo3_images360.pipelines.MysqlPipeline': 302,
+   # 'demo3_images360.pipelines.MongoPipeline': 301,
+    'demo3_images360.pipelines.MysqlPipeline': 302,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
