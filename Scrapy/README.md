@@ -9,7 +9,6 @@
 2. 执行`pip install scrapy`
 
 # 指令
-- 创建项目:`scrapy startproject 项目名称`
-- 创建Spider:
-    - 先切换到刚刚创建的项目下
-    - `scrapy genspider 文件名称 网站域名`
+- 创建项目:`scrapy startproject 项目名称`,然后切换到刚刚创建的目录下
+    - 创建Spider:`scrapy genspider 文件名称 网站域名`
+    - 创建CrawlSpider:`scrapy genspider -t crawl 文件名称 网站域名`
