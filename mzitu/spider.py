@@ -19,7 +19,7 @@ class GetImgs():
         for url in self.urls:
             # print(url)
             self.create_item(url)
-            
+
     #逻辑待优化
     def create_item(self,url):
         if self.db.value_exists(YET_REDIS_KEY,url):

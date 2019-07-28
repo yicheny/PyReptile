@@ -10,6 +10,8 @@ class Urls():
     def __init__(self):
         self.urls = []
 
+    # 首页是按时间更新链接的，优化思路如下：
+    # 爬取页面链接，如果链接不存在数据中则添加到数据库，如果已存在则停止程序
     def get_urls(self,url=START_URL):
         result = etree.HTML(get_page(url))
         url_list = result.xpath('//ul[@id="pins"]//a/@href')
