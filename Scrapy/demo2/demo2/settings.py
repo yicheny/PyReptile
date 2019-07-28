@@ -56,7 +56,6 @@ DOWNLOADER_MIDDLEWARES = {
    # 'demo2.middlewares.Demo2DownloaderMiddleware': 543,
     'demo2.middlewares.RandomAgentMiddleware': 543,
     'demo2.middlewares.RandomProxyMiddleware':543
-
 }
 
 # Enable or disable extensions

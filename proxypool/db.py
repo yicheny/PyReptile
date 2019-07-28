@@ -1,19 +1,18 @@
+from PyReptile.proxypool.setting import REDIS_PORT,DB
 REDIS_HOST = '127.0.0.1'
-REDIS_PORT = 6379
 REDIS_PASSWORD = None
 REDIS_KEY = 'proxies'
 MAX_SCORE = 100
 MIN_SCORE = 0
 INITIAL_SCORE = 10
-DB = 5 #免费ip代理设置为5,收费设置为6,ASDL设置为7
 
 import redis
 from random import choice
 from utils import PoolEmptyError
 
 class RedisClient(object):
-    def __init__(self,host=REDIS_HOST,port=REDIS_PORT,password=REDIS_PASSWORD):
-        self.db = redis.StrictRedis(host=host,port=port,password=password,decode_responses=True,db=5)
+    def __init__(self,host=REDIS_HOST,port=REDIS_PORT,password=REDIS_PASSWORD,db=DB):
+        self.db = redis.StrictRedis(host=host,port=port,password=password,decode_responses=True,db=db)
 
     def add(self,proxy,score=INITIAL_SCORE):
         self.db.zadd(REDIS_KEY,{proxy:score})

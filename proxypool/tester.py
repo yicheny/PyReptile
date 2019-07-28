@@ -1,8 +1,7 @@
 # 测试器这里使用了aiohttp，需要了解下用法
 VALID_STATUS_CODES = [200]
-TEST_URL = 'http://www.dilidili.name' #用于测试的网站
 BATCH_TEST_SIZE= 100 # 最大并发数量
-
+from PyReptile.proxypool.setting import TEST_URL
 from db import RedisClient
 import aiohttp,asyncio,time
 try:

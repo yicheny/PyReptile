@@ -1,14 +1,8 @@
-# -*- coding: utf-8 -*-
+from scrapy import Field,Item
 
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
-import scrapy
-
-
-class Demo4CrawlspiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class IMGItem(Item):
+    title = Field()
+    url = Field()
+    datetime = Field()
+    source = Field()
+    website = Field()
