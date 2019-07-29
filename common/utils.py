@@ -16,7 +16,7 @@ def get_page(url,options={},type='text'):
     print('正在抓取...', url)
     try:
         response = s.get(url,headers=headers,timeout=10)
-        print('抓取成功', url, response.status_code)
+        print('抓取结果', url, response.status_code)
         if response.status_code == 200:
             if type=='content':
                 return response.content

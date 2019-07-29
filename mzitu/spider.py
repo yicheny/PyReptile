@@ -20,9 +20,10 @@ class GetImgs():
             # print(url)
             self.create_item(url)
 
-    #逻辑待优化
+    #逻辑待优化——已抓取的页面应停止对其抓取，但是下一页的请求应该继续
     def create_item(self,url):
-        if self.db.value_exists(YET_REDIS_KEY,url):
+        if (re.search('https://www.mzitu.com/\d+/\d+',url) and self.db.value_exists(YET_REDIS_KEY,url)):
+            print('该页面已抓取...')
             return None
 
         res = get_page(url)
@@ -47,7 +48,7 @@ class GetImgs():
         if (isinstance(next,list) and next[0]):
             next_url = re.search('https://www.mzitu.com/\d+/\d+', next[0])
             if next_url:
-                time.sleep(random.uniform(0.2,0.6))
+                time.sleep(random.uniform(0,1))
                 self.create_item(next_url.group())
             else:
                 return None
