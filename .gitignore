@@ -14,3 +14,4 @@
 /Scrapy/demo/demo/__pycache__/*.pyc
 /Scrapy/demo/demo/spiders/__pycache__/*.pyc
 /common/__pycache__/*.pyc
+/avmoo/__pycache__/*.pyc

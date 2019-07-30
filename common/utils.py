@@ -11,11 +11,12 @@ base_headers = {
     'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'
 }
 
+# 发送请求
 def get_page(url,options={},type='text'):
     headers = dict(base_headers, **options)
     print('正在抓取...', url)
     try:
-        response = s.get(url,headers=headers,timeout=10)
+        response = s.get(url,headers=headers,timeout=30)
         print('抓取结果', url, response.status_code)
         if response.status_code == 200:
             if type=='content':

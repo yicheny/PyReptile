@@ -1,6 +1,6 @@
 # 关于DB的一些操作
 REDIS_PORT = 6379
-DB = 6
+DB = 6 # 6-mzitu 7-avmoo
 REDIS_HOST = '127.0.0.1'
 REDIS_PASSWORD = None
 REDIS_KEY = 'default'
