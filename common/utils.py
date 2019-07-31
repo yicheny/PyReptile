@@ -26,3 +26,23 @@ def get_page(url,options={},type='text'):
     except Exception:
         print('抓取失败', url)
         return None
+
+
+# 针对re返回的值进行一些处理
+class ReDispose():
+    @staticmethod
+    def search_v(value):
+        if value:
+            return value.group()
+        return ""
+
+    @staticmethod
+    def finall_v(f_list):
+        if len(f_list):
+            return f_list[0]
+        return ""
+
+import re
+if __name__ == '__main__':
+    search_v = ReDispose.search_v
+    print(search_v(re.search('\d+','123-123-123')))
