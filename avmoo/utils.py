@@ -1,6 +1,6 @@
 import requests
 from requests.adapters import HTTPAdapter
-from PyReptile.common.db import RedisClient
+from PyReptile.common.mongoDB import MongoClient
 
 s = requests.Session()
 s.mount('http://',HTTPAdapter(max_retries=5))
@@ -13,7 +13,7 @@ base_headers = {
 }
 
 # 发送请求
-db = RedisClient(db=7)
+db = MongoClient(db_name='avmoo',table_name='avmoo_faild_urls')
 def get_page(url,options={}):
     headers = dict(base_headers, **options)
     print('正在抓取...', url)
@@ -23,7 +23,7 @@ def get_page(url,options={}):
         if response.status_code == 200:
             return response.text
     except Exception:
-        db.add('avmoo_faild_urls',url)
+        db.add_one(url)
         print('抓取失败,已存入数据库', url)
         return None
 

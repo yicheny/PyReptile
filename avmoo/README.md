@@ -101,7 +101,7 @@
 #### 影片库avmoo_movies【一期暂不存储】
 数据结构为集合
 
-#### 已下载全部影片的演员记录库avmoo_complete_stars
+#### 已下载全部影片的演员记录库avmoo_complete_stars【改为直接使用avmoo_stars】
 
 #### 报错的页面avmoo_faild_urls
 

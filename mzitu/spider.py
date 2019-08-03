@@ -1,6 +1,6 @@
 YET_REDIS_KEY = 'mzitu_yet_urls'
 
-from PyReptile.common.db import RedisClient
+from PyReptile.common.redisDB import RedisClient
 from PyReptile.mzitu.utils import get_page,save_images
 from lxml import etree
 import time,re,random

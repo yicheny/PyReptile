@@ -1,6 +1,6 @@
 from PyReptile.mzitu.setting import START_URL
 from PyReptile.mzitu.utils import get_page
-from PyReptile.common.db import RedisClient
+from PyReptile.common.redisDB import RedisClient
 import time,random
 from lxml import etree
 
