@@ -163,7 +163,7 @@ class AvmooSpider():
         })
         # print(self.star['cavalry_movies'])
         # print(self.star)
-        self.db.add_one(self.star)
+        # self.db.add_one(self.star)
         return None
 
     # 在步兵影片详情页爬取信息——考虑和骑兵详情页爬取合并
