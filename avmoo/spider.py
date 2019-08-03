@@ -12,6 +12,10 @@ class AvmooSpider():
 
     #  从演员列表进入演员详情页
     def star_home(self,url=START_URL):
+        if self.db.find_one({'url':url}):
+            print('该star_url是下载过的资源，进行下一项',url)
+            return None
+
         self.star = {
             'cavalry_movies':[],
             'infantry_movies':[]
@@ -135,7 +139,7 @@ class AvmooSpider():
                     'name': movie_star('span').text(),
                     'headImg':movie_star('img').attr('src') if movie_star('img') else None
                 })
-                break
+                # break
 
         #影片样品【截图】
         movie_samples  = res('#sample-waterfall .sample-box')
@@ -159,6 +163,7 @@ class AvmooSpider():
         })
         # print(self.star['cavalry_movies'])
         # print(self.star)
+        self.db.add_one(self.star)
         return None
 
     # 在步兵影片详情页爬取信息——考虑和骑兵详情页爬取合并
