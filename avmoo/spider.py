@@ -116,7 +116,7 @@ class AvmooSpider():
     # 在骑兵影片详情页爬取信息
     def cavalry_movie_details(self,url):
         # print(url)
-        res = get_page(url)
+        res = get_page(url,type='save')
 
         if not res:
             print('骑兵影片详情页出错')
@@ -164,7 +164,7 @@ class AvmooSpider():
     # 在步兵影片详情页爬取信息——考虑和骑兵详情页爬取合并
     def infantry_movie_details(self, url):
         # print(url)
-        res = get_page(url)
+        res = get_page(url,type='save')
 
         if not res:
             print('步兵影片详情页出错')

@@ -14,7 +14,7 @@ base_headers = {
 
 # 发送请求
 db = MongoClient(db_name='avmoo',table_name='avmoo_faild_urls')
-def get_page(url,options={}):
+def get_page(url,options={},type=None):
     headers = dict(base_headers, **options)
     print('正在抓取...', url)
     try:
@@ -23,8 +23,10 @@ def get_page(url,options={}):
         if response.status_code == 200:
             return response.text
     except Exception:
-        db.add_one(url)
-        print('抓取失败,已存入数据库', url)
+        if(type=='save'):
+            db.add_one(url)
+            print('抓取失败,已存入数据库', url)
+        print('抓取失败',url)
         return None
 
 
