@@ -1,4 +1,4 @@
-import requests
+import requests,time,random
 from requests.adapters import HTTPAdapter
 from PyReptile.common.mongoDB import MongoClient
 
@@ -16,6 +16,7 @@ base_headers = {
 db = MongoClient(db_name='avmoo',table_name='avmoo_faild_urls')
 def get_page(url,options={},type=None):
     headers = dict(base_headers, **options)
+    time.sleep(random.uniform(0,1))
     print('正在抓取...', url)
     try:
         response = s.get(url,headers=headers,timeout=30)

@@ -36,7 +36,7 @@ class AvmooSpider():
             })
             # print(self.star)
             self.star_details(self.star['url'],self.star['name'])
-            return None
+            # break
 
         next = res('ul.pagination a[name="nextpage"]').attr('href')
         if next:
@@ -80,7 +80,7 @@ class AvmooSpider():
         for movie in movie_box_list:
             url = pq(movie).attr('href')
             self.cavalry_movie_details(url)
-            return None
+            # break
 
         next = res('ul.pagination a[name="nextpage"]').attr('href')
         if next:
@@ -107,7 +107,7 @@ class AvmooSpider():
         for movie in movie_box_list:
             url = pq(movie).attr('href')
             self.infantry_movie_details(url)
-            return None
+            # break
 
         next = res('ul.pagination a[name="nextpage"]').attr('href')
         if next:
