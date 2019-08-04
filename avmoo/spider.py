@@ -2,6 +2,7 @@ from PyReptile.avmoo.setting import START_URL,COMMON_URL,COMMON_URL_INFANTRY
 from PyReptile.avmoo.utils import get_page,ReDispose
 from PyReptile.common.mongoDB import MongoClient
 from pyquery import PyQuery as pq
+from copy import copy
 import re,time
 
 finall_v = ReDispose.finall_v
@@ -12,7 +13,6 @@ class AvmooSpider():
 
     #  从演员列表进入演员详情页
     def star_home(self,url=START_URL):
-
         self.star = {
             'cavalry_movies':[],
             'infantry_movies':[]
@@ -89,7 +89,7 @@ class AvmooSpider():
             print(url)
             return self.star_details(url)
         else:
-            star = {}.update(self.star)
+            star = copy(self.star)
             self.db.add_one(star)
             print('%s骑兵影片爬取完成' % name)
             return None
