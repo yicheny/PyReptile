@@ -13,10 +13,6 @@ class AvmooSpider():
 
     #  从演员列表进入演员详情页
     def star_home(self,url=START_URL):
-        self.star = {
-            'cavalry_movies':[],
-            'infantry_movies':[]
-        }
         res = get_page(url)
         if not res:
             print('演员列表页出错')
@@ -25,6 +21,10 @@ class AvmooSpider():
 
         stars = res('#waterfall div.item') #获取到演员列表
         for star in stars:
+            self.star = {
+                'cavalry_movies': [],
+                'infantry_movies': []
+            }
             star = pq(star) #注意，这里一开始遍历出来的是原生HTML对象,所以需要使用pq转换
             self.star.update({
                 'name':star('div.photo-info span').text(), #姓名

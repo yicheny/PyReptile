@@ -25,10 +25,11 @@ def get_page(url,options={},type=None):
             return response.text
     except Exception:
         if(type=='save'):
-            db.add_one(url)
+            db.add_one({'url':url})
             print('抓取失败,已存入数据库', url)
         print('抓取失败',url)
         return None
+
 
 # 针对re返回的值进行一些处理
 class ReDispose():
