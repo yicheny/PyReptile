@@ -2,7 +2,7 @@ from PyReptile.avmoo.setting import START_URL,COMMON_URL,COMMON_URL_INFANTRY
 from PyReptile.avmoo.utils import get_page,ReDispose
 from PyReptile.common.mongoDB import MongoClient
 from pyquery import PyQuery as pq
-import re
+import re,time
 
 finall_v = ReDispose.finall_v
 
@@ -12,9 +12,6 @@ class AvmooSpider():
 
     #  从演员列表进入演员详情页
     def star_home(self,url=START_URL):
-        if self.db.find_one({'url':url}):
-            print('该star_url是下载过的资源，进行下一项',url)
-            return None
 
         self.star = {
             'cavalry_movies':[],
@@ -49,6 +46,10 @@ class AvmooSpider():
 
     # 进入影片列表页爬取——综合
     def star_details(self,url,name=''):
+        if self.db.find_one({'url': url}):
+            print('该star_url是下载过的资源，进行下一项', url)
+            return None
+
         res = get_page(url)
         if not res:
             print('综合影片列表页出错')
@@ -88,7 +89,8 @@ class AvmooSpider():
             print(url)
             return self.star_details(url)
         else:
-            self.db.add_one(self.star)
+            star = {}.update(self.star)
+            self.db.add_one(star)
             print('%s骑兵影片爬取完成' % name)
             return None
 
@@ -225,5 +227,8 @@ class AvmooSpider():
         self.star_home()
 
 if __name__ == '__main__':
+    start_time = time.time()
     spider = AvmooSpider()
     spider.run()
+    end_time = time.time()
+    print('运行时间:' + str(end_time - start_time))

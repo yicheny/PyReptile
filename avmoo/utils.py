@@ -15,8 +15,8 @@ base_headers = {
 # 发送请求
 db = MongoClient(db_name='avmoo',table_name='avmoo_faild_urls')
 def get_page(url,options={},type=None):
+    time.sleep(random.uniform(0.3,1))
     headers = dict(base_headers, **options)
-    time.sleep(random.uniform(0,1))
     print('正在抓取...', url)
     try:
         response = s.get(url,headers=headers,timeout=30)
@@ -29,7 +29,6 @@ def get_page(url,options={},type=None):
             print('抓取失败,已存入数据库', url)
         print('抓取失败',url)
         return None
-
 
 # 针对re返回的值进行一些处理
 class ReDispose():
