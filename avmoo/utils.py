@@ -15,7 +15,7 @@ base_headers = {
 # 发送请求
 db = MongoClient(db_name='avmoo',table_name='avmoo_faild_urls')
 def get_page(url,options={},type=None):
-    time.sleep(random.uniform(0.3,1))
+    time.sleep(random.uniform(0.5,2 ))
     headers = dict(base_headers, **options)
     print('正在抓取...', url)
     try:

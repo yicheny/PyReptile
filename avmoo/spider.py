@@ -1,4 +1,4 @@
-from PyReptile.avmoo.setting import START_URL,COMMON_URL,COMMON_URL_INFANTRY
+from PyReptile.avmoo.setting import START_URL,COMMON_URL,COMMON_URL_INFANTRY,DB_NAME,TABLE_NAME
 from PyReptile.avmoo.utils import get_page,ReDispose
 from PyReptile.common.mongoDB import MongoClient
 from pyquery import PyQuery as pq
@@ -9,7 +9,7 @@ finall_v = ReDispose.finall_v
 
 class AvmooSpider():
     def __init__(self):
-        self.db = MongoClient(db_name='avmoo',table_name='avmoo_stars')
+        self.db = MongoClient(db_name=DB_NAME,table_name=TABLE_NAME)
 
     #  从演员列表进入演员详情页
     def star_home(self,url=START_URL):
