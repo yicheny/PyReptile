@@ -1,7 +1,6 @@
 import requests
 from requests.adapters import HTTPAdapter
 
-
 s = requests.Session()
 s.mount('http://',HTTPAdapter(max_retries=5))
 s.mount('https://',HTTPAdapter(max_retries=5))

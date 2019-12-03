@@ -1,7 +1,7 @@
 from pyquery import PyQuery as pq
 from PyReptile.echartIssues.utils import get_page
 
-url = 'https://github.com/apache/incubator-echarts/issues'
+url = 'https://github.com/apache/incubator-echarts/issues/1'
 
 def demo():
     res = pq(get_page(url))
