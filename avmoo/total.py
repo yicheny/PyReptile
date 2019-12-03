@@ -22,10 +22,12 @@ if __name__ == '__main__':
 
     data = DataTotal()
     print('演员数目',data.db.count())
-    # print('演员列表',data.db.distinct('name'))
     print('骑兵影片数目',data.db2.count())
     print('步兵影片数目',data.db3.count())
     print('影片总数目',data.db2.count() + data.db3.count())
+    # print('演员列表',data.db.distinct('name'))
+    # print('骑兵影片列表',data.db2.distinct('movie_name'))
+    # print('步兵影片列表',data.db3.distinct('movie_name'))
 
     end_time = time.time()
     print('执行时间：' + str(end_time-start_time))
