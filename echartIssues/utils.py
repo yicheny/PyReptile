@@ -16,12 +16,15 @@ def get_page(url,options={},type='text'):
     print('正在抓取...', url)
     try:
         response = s.get(url,headers=headers,timeout=10)
-        print('抓取成功', url, response.status_code)
         if response.status_code == 200:
+            print('抓取成功', url, response.status_code)
             if type=='content':
                 return response.content
             else:
                 return response.text
+        if response.status_code == 404:
+            return print('页面缺失',url)
+        return print('抓取失败',response.status_code)
     except Exception:
         print('抓取失败', url)
         return None

@@ -1,10 +1,14 @@
 from PyReptile.echartIssues.utils import get_page
+from PyReptile.echartIssues.setting import DB_NAME,TABLE_NAME
+from PyReptile.common.mongoDB import MongoClient
 from pyquery import PyQuery as pq
 import re
 
-startNum = 11773
+startNum = 2787
 endNum = 11773
 commonUrl = 'https://github.com/apache/incubator-echarts/issues/'
+
+db = MongoClient(db_name=DB_NAME,table_name=TABLE_NAME)
 
 def spider(issuseNum):
     while issuseNum <= endNum :
@@ -14,13 +18,18 @@ def spider(issuseNum):
     return print('结束',issuseNum)
 
 def request(url):
-    res = pq(get_page(url))
+    res = get_page(url)
+    if not res: return print('跳过此错误页',url)
+
+    res = pq(res)
     issuesObj = {
+        'url':url,
         'title':res('span.js-issue-title').text(),
         'state':res('span.State').text(),
         'version':versionFor(res)
     }
-    print(issuesObj)
+    # print(issuesObj)
+    db.add_one(issuesObj)
 
 def versionFor(res):
     version = re.search('<h3>Version</h3>\s<p>.+</p>',str(res))
