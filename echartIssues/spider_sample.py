@@ -4,8 +4,8 @@ from PyReptile.common.mongoDB import MongoClient
 from pyquery import PyQuery as pq
 import re
 
-startNum = 2787
-endNum = 11773
+startNum = 11774
+endNum = 11789
 commonUrl = 'https://github.com/apache/incubator-echarts/issues/'
 
 db = MongoClient(db_name=DB_NAME,table_name=TABLE_NAME)
